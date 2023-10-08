@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Expense</title>
+    <link rel="stylesheet" type="text/css" href="expense.css">
+</head>
+<body>
+    <style>h1 { text-align: center;
+    } .premium {
+    background-color: rgb(92, 92, 237);
+    color: white;
+    }
+    #premiumuser { color: rgb(175, 78, 78);
+
+    }</style>
+        <h1>Expense Tracker App</h1>
+        <div class="button-container">
+            <button class="premium" id="premiumButton">Buy Premium</button>
+            <div id="premiumuser"></div>
+    
+            <button class="leaderboard-button" id="leaderboardbtn">
+                <!-- 🏆Show Leaderboard 🏆 -->
+            </button>
+        </div>
+    
+    <div id="premiumuser"></div>
+    <div id="leaderboardModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeLeaderboard">&times;</span>
+            <!-- Leaderboard content goes here -->
+            <ul id="leaderboardList"></ul>
+        </div>
+    </div>
+
+
+    <form action="expense/addexpense" method="POST" id="addExpenseForm">
+        <label for="amount">Enter Expense Amount: </label>
+        <input type="number" id="amount" name="amount" required>
+        <label for="desc">Enter Description: </label>
+        <input type="text" id="desc" name="desc">
+        <label for="cat">Choose A Category:  </label>
+        <select id="cat" name="cat" required>
+            <option value="Miscellaneous">Miscellaneous</option>
+            <option value="Travel">Travel</option>
+            <option value="Grocery">Grocery</option>
+            <option value="Rent">Rent</option>
+            <option value="Entertainment">Entertainment</option>
+        </select>
+        <input type="submit" value="Add Expense">
+    </form>
+    <table id="expenseTable">
+        <thead>
+            <tr>
+                <th>Expense Amount</th>
+                <th>Description</th>
+                <th>Category</th>
+            </tr>
+
+        </thead>
+        <tbody></tbody>
+    </table>
+</body>
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.4.0/axios.min.js"></script>
+<script src="expense.js"></script>
+</html>

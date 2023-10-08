@@ -1,0 +1,22 @@
+//  from leaderboard 
+frontend side story....
+show the leaderboard button - Dom manipulation
+when u click on this button an api call should happened
+you will get the data in sorted order from backend
+Do dom manipulation and show the data.
+
+backside story...
+create a new route -> /premium/leaderboard
+find all the expense and then group by unique userid
+i need name of the user as well
+query the user table and you will get all the id and username.
+in this you are running 2 queries it would make everything slow
+
+solution is join two 
+
+    // refer notes to see what optimisatiosn we did and how does it affects
+    // Optim 1: using attributes      // Optim 2: using sequelize fn  // Optim 3: Using Joins (left jon bydefault )//Optim 4 : USing order feature to sort
+    // Optim 1: using attributes      // Optim 2: using sequelize fn  // Optim 3: Using Joins (left jon bydefault )//Optim 4 : USing order feature to sort 
+    //Potim 5: stroing the total expense  in the user table. whenever user add a new expense (Explanation in the notes )
+    
+by this 5th way we can store userexpense whenever he adds sise by side in total col in db that reduce iteration work and all beacuse there can be multiple user so we dont want to reduce speed
