@@ -57,6 +57,10 @@
             id="loginPassword"
             required
           />
+
+          <a href="#" id="forgotPasswordLink">Forgot your password?</a>
+
+
        <!-- <a href="/password/forgotPasswordPage">Forgot your password?</a> -->
           <button id="loginBtn">Login</button><br>
 
@@ -81,6 +85,27 @@
         </div>
       </div>
     </div>
+
+    <div id="forgotPasswordModal" name="forgotPasswordModal" class="modal" style="display: none;">
+
+      <div class="modal-content">
+          <span class="close" id="closeModalBtn"  onclick="closeForgotPasswordModal()">&times;</span>
+          <h3>Enter your email to reset the password</h3>
+          <p></p>
+          <form id="forgotPasswordForm">
+              <div class="input-field">
+                  <input type="text" placeholder="Email" required id="forgotPasswordEmail">
+              </div>
+              <div class="btn-field">
+              <button type="'button" id="resetPasswordBtn">Reset Password</button>
+              </div>
+  
+          </form>
+      </div>
+  </div>
+  
+  
+  
   </body>
   <script
     src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.2.2/axios.min.js"

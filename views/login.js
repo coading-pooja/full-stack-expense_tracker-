@@ -9,6 +9,7 @@ const signupPassword = document.getElementById("signupPassword");
 const loginEmail = document.getElementById("loginEmail");
 const loginPassword = document.getElementById("loginPassword");
 
+
 signUp.addEventListener("click", () => {
   container.classList.add("right-panel-active");
 });
@@ -82,3 +83,42 @@ signUpBtn.addEventListener("click", (e) => {
 });
 
 
+
+const forgotPasswordLink = document.getElementById("forgotPasswordLink");
+const forgotPasswordModal = document.getElementById("forgotPasswordModal");
+const closeModalBtn = document.getElementById("closeModalBtn");
+const resetPasswordBtn = document.getElementById("resetPasswordBtn");
+const forgotPasswordEmail = document.getElementById("forgotPasswordEmail");
+
+forgotPasswordLink.addEventListener("click", (event) => {
+  event.preventDefault();
+  forgotPasswordModal.style.display = "block";
+});
+
+closeModalBtn.addEventListener("click", (event) => {
+  event.preventDefault();
+  forgotPasswordModal.style.display = "none";
+});
+
+resetPasswordBtn.addEventListener("click", async (event) => {
+  event.preventDefault();
+  const email = forgotPasswordEmail.value;
+  const obj = { email: email };
+
+  try {
+    const response = await axios.post(
+      "http://localhost:3000/password/forgotPasswordMail",
+      obj
+    );
+
+    if (response.status === 200) {
+      alert(`Link sent to ${email} to create a new password`);
+      forgotPasswordModal.style.display = "none";
+    } else {
+      alert("Error sending the reset password link.");
+    }
+  } catch (err) {
+    console.error(err);
+    alert("An error occurred. Please try again later.");
+  }
+});
