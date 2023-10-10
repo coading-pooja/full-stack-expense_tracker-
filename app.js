@@ -23,7 +23,8 @@ const sequelize = require('./util/database');
 const User = require('./models/user')
 const Expense = require('./models/expenses')
 const Order = require('./models/orders');
-const Resetpassword = require('./models/password');
+const Password = require("./models/password");
+
 
 
 
@@ -33,6 +34,7 @@ const expenseRoutes = require('./routes/expenseRoutes');
 const purchaseRoutes = require('./routes/purchaseRoutes');
 const premiumRoutes = require('./routes/premiumRoutes');
 const passwordRoutes = require('./routes/passwordRoutes');
+
 
 
 
@@ -57,8 +59,8 @@ Expense.belongsTo(User);
 User.hasMany(Order);
 Order.belongsTo(User); 
 
-User.hasMany(Resetpassword);
-Resetpassword.belongsTo(User);
+User.hasMany(Password);
+Password.belongsTo(User);
 
 
 

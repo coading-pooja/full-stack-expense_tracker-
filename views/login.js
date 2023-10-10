@@ -9,7 +9,8 @@ const signupPassword = document.getElementById("signupPassword");
 const loginEmail = document.getElementById("loginEmail");
 const loginPassword = document.getElementById("loginPassword");
 
-
+window.addEventListener("DOMContentLoaded",()=>
+console.log("hello"))
 signUp.addEventListener("click", () => {
   container.classList.add("right-panel-active");
 });
