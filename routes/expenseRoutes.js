@@ -7,4 +7,8 @@ router.post('/addexpense', authentication.authenticate, expenseController.addexp
 router.post('/deleteexpense',authentication.authenticate,expenseController.deleteexpense);
 router.get('/getexpenses',authentication.authenticate,  expenseController.getexpenses);
 
+
+router.get('/download', authentication.authenticate, expenseController.downloadexpense);
+
+
 module.exports = router;                                                                                                

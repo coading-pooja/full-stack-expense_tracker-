@@ -81,24 +81,37 @@ th {
 .button-container {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    margin-bottom: 10px; /* Optional: Add margin if needed */
+     align-items: center; 
+    margin-bottom: 15px; /* Optional: Add margin if needed */
 }
 
 .premium,
+
 .leaderboard-button {
     padding: 10px 20px;
     font-size: 16px;
 }
 
+#premiumuser {
+    display: flex;
+    justify-content: flex-start; /* Move the button to the left */
+    align-items: center; /* Center vertically */
+}
+
+
 .premium-user-button {
     padding: 10px 20px;
     font-size: 16px;
-    background-color: #3498db; 
+    background-color: #07b6f0;
+    ; 
     color: white;
     border: none;
     cursor: pointer;
 }
+
+
+
+
 
 /* Style for the leaderboard modal */
 .modal {
@@ -139,7 +152,8 @@ th {
 
 /* Style for the Show Leaderboard button */
 .leaderboard-button {
-    background-color: #3498db;
+    background-color: #07b6f0;
+
     color: #fff;
     padding: 10px 20px;
     border: none;
@@ -148,4 +162,15 @@ th {
     cursor: pointer;
 
 }
+
+.add-button {
+    background-color: #07b6f0;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+
+
+}
+
 

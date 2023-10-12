@@ -1,3 +1,6 @@
+  // Retrieve token from localStorage
+const token = localStorage.getItem('token');
+
 //  Wait for the DOM to be fully loaded before executing the code
 document.addEventListener('DOMContentLoaded', function () {
 
@@ -9,10 +12,9 @@ const table = document.getElementById('expenseTable');
 const tbody = table.querySelector('tbody');
 const premiumButton = document.getElementById('premiumButton');
 
-// Retrieve token from localStorage
-const token = localStorage.getItem('token');
 
 // Define a function to parse the JWT token
+
 function parseJwt(token) {
     var base64Url = token.split('.')[1];
     var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
@@ -21,6 +23,8 @@ function parseJwt(token) {
     }).join(''));
     return JSON.parse(jsonPayload);
 }
+
+
 
 //Add an event listener for when the DOM is fully loaded
 window.addEventListener("DOMContentLoaded", () =>{ 
@@ -186,7 +190,12 @@ rzp1.on('payment.failed', async function (response) {
 function showPremiumUser() {
     const premiumButton = document.getElementById('premiumButton');
     premiumButton.style.visibility = 'hidden';
+    const downloadButton = document.getElementById('downloadBtn');
+    downloadButton.style.display = 'block';
+
     const premiumUserDiv = document.getElementById('premiumuser');
+    premiumUserDiv.style.textAlign = 'flex'; 
+
     const premiumUserButton = document.createElement('button');
     premiumUserButton.textContent = 'You are now a Premium User';
     premiumUserButton.className = 'premium-user-button';
@@ -234,6 +243,30 @@ function showPremiumUser() {
         const leaderboardModal = document.getElementById('leaderboardModal');
         leaderboardModal.style.display = 'none';
     }
+
+    document.getElementById('downloadBtn').addEventListener('click', function download(){
+        
+
+
+        axios.get('http://localhost:3000/expense/download', {headers: {"Authorization": token}})
+              .then((response)=>{
+                console.log("RESPONSE", response)
+                if(response.status === 200){
+                  //backend is sending a download link which on click opens new tab in browser and file starts downloading
+                  const a = document.createElement('a');
+                  a.href = response.data.fileUrl
+                  a.download = `${response.data.filename}`;  //this will instruct browser to download the file named myexpense.csv
+                  a.click();
+                }else{
+                 console.log("Error downloading expense file, no response")
+                }
+              })
+      })
+    
+    
+  
+
+
 
 
 
