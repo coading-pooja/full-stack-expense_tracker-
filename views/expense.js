@@ -13,6 +13,8 @@ const tbody = table.querySelector('tbody');
 const premiumButton = document.getElementById('premiumButton');
 
 
+
+
 // Define a function to parse the JWT token
 
 function parseJwt(token) {

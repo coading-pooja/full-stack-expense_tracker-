@@ -6,55 +6,16 @@ const bodyParser = require('body-parser');
 const Expense = require("../models/expenses");
 const AWS = require("aws-sdk");
 const { createSecretKey } = require('crypto');
+const UserServices = require("../services/userservices")
+const S3Service = require("../services/S3services")
 
-function uploadToS3(data,filename){
-        //get credentials, login to AWS and upload the file.
-
-    const BUCKET_NAME = "fullstack-expensetracker";
-    const IAM_USER_KEY = process.env.IAM_USER_KEY;
-    const IAM_USER_SECRET = process.env.IAM_USER_SECRET;
-
-    let s3bucket = new AWS.S3({
-    accessKeyId: IAM_USER_KEY,
-    secretAccessKey: IAM_USER_SECRET,
-    // bucket:  BUCKET_NAME
-    })
-
-         //params Bucket, Key, Body as required by AWS S3
-         const params = {                               
-            Bucket: BUCKET_NAME,
-            Key: filename,
-            Body: data,
-            ACL: 'public-read'
-          }
-      
-      
-
-          // return promise instead direct return as uploading is an asynchronous task
-    return new Promise((resolve, reject)=>{
-      s3bucket.upload(params, async (err, s3response)=>{
-        try{
-          if(err) {
-            console.log("Error uploading file", err);
-            reject(err);
-          }else{
-            console.log('File uploaded successfully', s3response)
-            resolve(s3response.Location);
-          }
-        }catch(err){
-          console.log("Waiting to login in AWS for upload", err)
-        }
-
-      })
-    })
-  }
 
   const downloadexpense = async (req, res) =>{
     try{
-      const expenses = await req.user.getExpenses();
+      const expenses = await UserServices.getExpenses(req);
       const stringifiedExpenses = JSON.stringify(expenses);
       const filename = `expense${req.user.id}_${new Date()}.txt`;
-      const fileUrl = await uploadToS3(stringifiedExpenses, filename);
+      const fileUrl = await S3Service.uploadToS3(stringifiedExpenses, filename);
 
       res.status(200).json({fileUrl: fileUrl, success:true, filename: filename});
 
@@ -65,24 +26,7 @@ function uploadToS3(data,filename){
 
   }
 
-
-
-
-
-
-// const downloadexpense = async(req,res)=>{    
-//     const expenses = await req.user.getexpenses();
-//     console.log(expenses);
-//     const stringifiedExpenses =JSON.stringify(expenses);
-//     const filename = Expense.txt;
-//     const fileURl = uploadToS3();
-//     res.status(200).json({fileURl,success:true})
-// }
-
-
-
-
-
+  
 const addexpense = async (req, res) => {
     try {
         console.log(req.body);
