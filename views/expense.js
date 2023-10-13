@@ -75,6 +75,15 @@ axios.get("http://localhost:3000/expense/getexpenses", { headers: { "Authorizati
         .catch((err) => {
             console.log(err);
         })
+
+
+        const logoutButton = document.getElementById('logoutButton');
+        logoutButton.addEventListener('click', function() {
+            // Clear the token from local storage to log the user out
+            localStorage.removeItem('token');
+            window.location.href = 'login.html'; 
+        });
+    
 });
 
 // Add an event listener for the add expense form submission
@@ -192,16 +201,16 @@ rzp1.on('payment.failed', async function (response) {
 function showPremiumUser() {
     const premiumButton = document.getElementById('premiumButton');
     premiumButton.style.visibility = 'hidden';
-    const downloadButton = document.getElementById('downloadBtn');
-    downloadButton.style.display = 'block';
-
+    
     const premiumUserDiv = document.getElementById('premiumuser');
     premiumUserDiv.style.textAlign = 'flex'; 
-
     const premiumUserButton = document.createElement('button');
     premiumUserButton.textContent = 'You are now a Premium User';
     premiumUserButton.className = 'premium-user-button';
     premiumUserDiv.appendChild(premiumUserButton);
+
+    const downloadButton = document.getElementById('downloadBtn');
+    downloadButton.style.display = 'block';
 
     const leaderboardBtn = document.getElementById('leaderboardbtn');
     leaderboardBtn.textContent = '🏆 Show Leaderboard 🏆';

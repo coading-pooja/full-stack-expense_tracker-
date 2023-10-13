@@ -13,27 +13,38 @@
     color: white;
     }
     #premiumuser { color: rgb(175, 78, 78);
-
     }</style>
         <h1>Expense Tracker App</h1>
         <div class="button-container">
             <button class="premium" id="premiumButton";>Buy Premium</button>
-            <button class="add-button" id="downloadBtn">Download Expense File</button>
 
-            <div id="premiumuser"></div>
+                <button class="add-button" id="downloadBtn">Download Expense File</button>
+
+                <!-- <button class="leaderboard-button" id="leaderboardbtn">
+                    
+                </button> -->
 
 
-
-    
-            <button class="leaderboard-button" id="leaderboardbtn">
+               <div><a class="leaderboard-button" id="leaderboardbtn" href="#">
                 <!-- 🏆Show Leaderboard 🏆 -->
-            </button>
+            </a> 
+            <button id="logoutButton">Logout</button>
+
+        </div> 
+
+
+                
+        
+
+<!-- <div id="premiumuser"></div> -->
+
+
         </div>
     
         <!-- <button class="add-button" id="downloadBtn">Download Expense File</button> -->
+        <div id="premiumuser"> </div>
+        
 
-
-    <div id="premiumuser"></div>
     <div id="leaderboardModal" class="modal">
         <div class="modal-content">
             <span class="close" id="closeLeaderboard">&times;</span>
@@ -41,7 +52,6 @@
             <ul id="leaderboardList"></ul>
         </div>
     </div>
-
 
     <form action="expense/addexpense" method="POST" id="addExpenseForm">
         <label for="amount">Enter Expense Amount: </label>
@@ -65,20 +75,18 @@
                 <th>Description</th>
                 <th>Category</th>
             </tr>
-
         </thead>
         <tbody></tbody>
     </table>
-    <div>
-        <label for="pagenumber">Page Views:</label>
-        <select name="pagenumber" id="pagenumber" type="radio" >
-         <option value="5">5</option>
-         <option value="10">10</option>
-         <option value="25">25</option>
-         <option value="50">50</option>
-         <option value="100">100</option>
-        </select>
-    </div>
+    <label for="pagenumber">Page Views:</label>
+    <select name="pagenumber" id="pagenumber" type="radio" >
+     <option value="5">5</option>
+     <option value="10">10</option>
+     <option value="25">25</option>
+     <option value="50">50</option>
+     <option value="100">100</option>
+    </select>
+            
 
 </body>
 <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
