@@ -1,1 +1,5 @@
 ::1 - - [14/Oct/2023:10:16:16 +0000] "POST /user/login HTTP/1.1" 404 12 "http://127.0.0.1:5500/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36"
+::1 - - [16/Oct/2023:04:47:41 +0000] "POST /user/login HTTP/1.1" 401 37 "http://127.0.0.1:5500/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36"
+::1 - - [16/Oct/2023:05:18:29 +0000] "POST /user/login HTTP/1.1" 401 37 "http://127.0.0.1:5500/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36"
+::ffff:127.0.0.1 - - [16/Oct/2023:05:19:02 +0000] "GET /password/createNewPassword/e4356bfc-52b2-4602-80b6-0e5faeadb24a HTTP/1.1" 400 44 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36"
+::ffff:127.0.0.1 - - [16/Oct/2023:05:19:03 +0000] "GET /favicon.ico HTTP/1.1" 404 150 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36"
