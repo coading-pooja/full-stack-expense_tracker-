@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const helmet = require('helmet');
+// const helmet = require('helmet');
 const compression = require('compression');
 const morgan = require('morgan');
 const fs = require('fs');
@@ -41,16 +41,13 @@ app.use(
   })
 );
 
-app.use(helmet()); // Enable secure headers
+// app.use(helmet()); // Enable secure headers
 app.use(compression()); // Enable compression
 
 app.use(bodyParser.json());
 app.use(express.json()); // Parse JSON request bodies
 
-// Serve static files
-app.use(express.static('views'));
-
-
+ app.use(express.static("views"))
 // Routes directs
 app.use('/user', userRoutes);
 app.use('/expense', expenseRoutes);
@@ -71,8 +68,8 @@ Password.belongsTo(User);
 sequelize
   .sync()
   .then((result) => {
-    app.listen(process.env.PORT || 3000, () => {
-      console.log(`Server is running on port ${process.env.PORT || 3000}`);
+    app.listen(3000,() => {
+      console.log(`Server is running on port ${3000}`);
     });
   })
   .catch((error) => {
