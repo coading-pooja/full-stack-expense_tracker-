@@ -47,7 +47,7 @@ axios.get("http://localhost:3000/expense/getexpenses", { headers: { "Authorizati
                 const newRow = document.createElement('tr');
                 const expenseDetail = [obj.amount, obj.description, obj.category];
                 expenseDetail.forEach(function (value) {
-                    const newCell = document.createElement('td');
+                    const newCell = document.createElemen('td');
                     newCell.textContent = value;
                     newRow.appendChild(newCell);
                 });
@@ -81,7 +81,7 @@ axios.get("http://localhost:3000/expense/getexpenses", { headers: { "Authorizati
         logoutButton.addEventListener('click', function() {
             // Clear the token from local storage to log the user out
             localStorage.removeItem('token');
-            window.location.href = 'login.html'; 
+            window.location.href = 'index.html'; 
         });
     
 });
@@ -214,6 +214,8 @@ function showPremiumUser() {
 
     const leaderboardBtn = document.getElementById('leaderboardbtn');
     leaderboardBtn.textContent = '🏆 Show Leaderboard 🏆';
+    leaderboardBtn.style.display = 'inline-block'; // Show the leaderboard button
+
 
     leaderboardBtn.onclick = async () => {
         try {

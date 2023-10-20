@@ -14,36 +14,23 @@
     }
     #premiumuser { color: rgb(175, 78, 78);
     }</style>
-        <h1>Expense Tracker App</h1>
+        <h1>Track Your Expenses</h1>
         <div class="button-container">
+            <div class="left-side">
             <button class="premium" id="premiumButton";>Buy Premium</button>
+            <button class="add-button" id="downloadBtn">Download Expense File</button>
+            </div>
 
-                <button class="add-button" id="downloadBtn">Download Expense File</button>
-
-                <!-- <button class="leaderboard-button" id="leaderboardbtn">
-                    
-                </button> -->
-
-
-               <div><a class="leaderboard-button" id="leaderboardbtn" href="#">
-                <!-- 🏆Show Leaderboard 🏆 -->
-            </a> 
-            <button id="logoutButton">Logout</button>
-
+            <div class="right-side">
+                <button class="homepage-button">Home Page</button>
+                <button id="logoutButton">LogOut</button>
         </div> 
+    </div> 
+    <div class="right-side">
+        <a class="leaderboard-button" id="leaderboardbtn" style="display: none;">🏆 Show Leaderboard 🏆</a>
+    </div>
 
-
-                
-        
-
-<!-- <div id="premiumuser"></div> -->
-
-
-        </div>
-    
-        <!-- <button class="add-button" id="downloadBtn">Download Expense File</button> -->
-        <div id="premiumuser"> </div>
-        
+    <div id="premiumuser"></div>
 
     <div id="leaderboardModal" class="modal">
         <div class="modal-content">
@@ -52,7 +39,6 @@
             <ul id="leaderboardList"></ul>
         </div>
     </div>
-
     <form action="expense/addexpense" method="POST" id="addExpenseForm">
         <label for="amount">Enter Expense Amount: </label>
         <input type="number" id="amount" name="amount" required>
