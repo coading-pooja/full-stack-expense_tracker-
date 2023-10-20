@@ -81,7 +81,7 @@ axios.get("http://13.127.157.193:3000/expense/getexpenses", { headers: { "Author
         logoutButton.addEventListener('click', function() {
             // Clear the token from local storage to log the user out
             localStorage.removeItem('token');
-            window.location.href = 'login.html'; 
+            window.location.href = 'index.html'; 
         });
     
 });
