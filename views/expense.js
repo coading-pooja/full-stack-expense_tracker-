@@ -38,7 +38,7 @@ if(isPremiumuser){
    showPremiumUser();
 } 
  //  Make a GET request to fetch expenses from the backend
-axios.get("http://13.127.157.193:3000/expense/getexpenses", { headers: { "Authorization": token } })
+axios.get("http://localhost:3000/expense/getexpenses", { headers: { "Authorization": token } })
         .then((res) => {
             console.log(res.data.allExpense);
             const expense = res.data.allExpense;
@@ -97,7 +97,7 @@ addExpenseForm.addEventListener('submit', (event) => {
     
     }
     console.log(expObj);
-    axios.post("http://13.127.157.193:3000/expense/addexpense", expObj, { headers: { "Authorization": token } })
+    axios.post("http://localhost:3000/expense/addexpense", expObj, { headers: { "Authorization": token } })
         .then((res) => {
             console.log(res.data.data.id); // Assuming the ID is in the response
 
@@ -145,7 +145,7 @@ const deleteFn = function (newRow) {
         id: newRow.id
         
     }
-    axios.post("http://13.127.157.193:3000/expense/deleteexpense", obj, { headers: { "Authorization": token } })
+    axios.post("http://localhost:3000/expense/deleteexpense", obj, { headers: { "Authorization": token } })
         .then(() => {
             console.log("deleted")
         })
@@ -161,7 +161,7 @@ premiumButton.addEventListener('click', async function (e) {
 
 // Retrieve the token again for the premium button click event
 const token = localStorage.getItem('token');
-const response = await axios.get("http://13.127.157.193:3000/purchase/premiummembership", { headers: { "Authorization": token } });
+const response = await axios.get("http://localhost:3000/purchase/premiummembership", { headers: { "Authorization": token } });
 
 // Following is the code executed after I get a response from the buypremium membership controller.
 console.log(response);
@@ -170,7 +170,7 @@ var options = {
     "order_id": response.data.order.id, // This order id tells Razorpay about time amount and currency. This is already registered at Razorpay.
     // Following handler will handle the success payment. It is a callback function and it is called after the success of payment. This callback is executed by Razorpay itself.
     "handler": async function (response) {
-        await axios.post("http://13.127.157.193:3000/purchase/updatetransactionstatus", {
+        await axios.post("http://localhost:3000/purchase/updatetransactionstatus", {
             order_id: options.order_id,
             payment_id: response.razorpay_payment_id,
             payStatus: true,
@@ -191,7 +191,7 @@ rzp1.on('payment.failed', async function (response) {
     console.log(response.error.metadata);
     alert('Payment Failed Please try Again');
     // Changing the payment status to "FAILED" in the order table
-    await axios.post("http://13.127.157.193:3000/purchase/updatetransactionstatus", {
+    await axios.post("http://localhost:3000/purchase/updatetransactionstatus", {
         order_id: response.error.metadata.order_id,
         payment_id: response.error.metadata.payment_id,
         payStatus: false,
@@ -230,7 +230,7 @@ function showPremiumUser() {
     leaderboardBtn.onclick = async () => {
         try {
             const token = localStorage.getItem('token');
-            const leaderboardArray = await axios.get('http://13.127.157.193:3000/premium/showLeaderboard', {
+            const leaderboardArray = await axios.get('http://localhost:3000/premium/showLeaderboard', {
                 headers: { "Authorization": token }
             });
 
@@ -271,7 +271,7 @@ function showPremiumUser() {
         
 
 
-        axios.get('http://13.127.157.193:3000/expense/download', {headers: {"Authorization": token}})
+        axios.get('http://localhost:3000/expense/download', {headers: {"Authorization": token}})
               .then((response)=>{
                 console.log("RESPONSE", response)
                 if(response.status === 200){
