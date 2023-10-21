@@ -30,7 +30,7 @@ async function signup() {
     console.log(signupDetails)
 
 
-    const response = await axios.post("http://13.127.157.193:3000/user/signup", signupDetails);
+    const response = await axios.post("http://localhost:3000/user/signup", signupDetails);
     alert("sign up successful");
 
 
@@ -55,7 +55,7 @@ async function login() {
     };
     console.log(loginDetails);
 
-    const response = await axios.post("http://13.127.157.193:3000/user/login", loginDetails);
+    const response = await axios.post("http://localhost:3000/user/login", loginDetails);
     console.log(response)
     alert("Login successful");
     if (response.status === 200) {
@@ -108,7 +108,7 @@ resetPasswordBtn.addEventListener("click", async (event) => {
 
   try {
     const response = await axios.post(
-      "http://13.127.157.193:3000/password/forgotPasswordMail",
+      "http://localhost:3000/password/forgotPasswordMail",
       obj
     );
 
