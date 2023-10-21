@@ -7,17 +7,21 @@
     <link rel="stylesheet" type="text/css" href="expense.css">
 </head>
 <body>
-    <style>h1 { text-align: center;
+    <style>h1 { text-align: center; color: white;
     } .premium {
     background-color: rgb(92, 92, 237);
     color: white;
     }
     #premiumuser { color: rgb(175, 78, 78);
     }</style>
-        <h1>Expense Tracker App</h1>
+        <h1>Track Your Expenses</h1>
         <div class="button-container">
+            <div class="left-side">
             <button class="premium" id="premiumButton";>Buy Premium</button>
+            <button class="add-button" id="downloadBtn">Download Expense File</button>
+            </div>
 
+<<<<<<< HEAD
                 <button class="add-button" id="downloadBtn">Download Expense File</button>
 
                 <!-- <button class="leaderboard-button" id="leaderboardbtn">
@@ -30,20 +34,22 @@
             </a> 
              <button id="logoutButton">Logout</button> 
 
+=======
+            <div class="right-side">
+                <button class="homepage-button">Home Page</button>
+                <button id="logoutButton">LogOut</button>
+>>>>>>> main
         </div> 
+    </div> 
+
+    <div class="leaderboard-container">
+        <a class="leaderboard-button" id="leaderboardbtn" style="display: none;">🏆 Show Leaderboard 🏆</a>
+    </div>
 
 
-                
-        
-
-<!-- <div id="premiumuser"></div> -->
-
-
-        </div>
     
-        <!-- <button class="add-button" id="downloadBtn">Download Expense File</button> -->
-        <div id="premiumuser"> </div>
-        
+
+    <div id="premiumuser"></div>
 
     <div id="leaderboardModal" class="modal">
         <div class="modal-content">
@@ -51,6 +57,10 @@
             <!-- Leaderboard content goes here -->
             <ul id="leaderboardList"></ul>
         </div>
+    </div>
+
+    <div class="leaderboard-container">
+        <a class="leaderboard-button" id="leaderboardbtn" style="display: none;">🏆 Show Leaderboard 🏆</a>
     </div>
 
     <form action="expense/addexpense" method="POST" id="addExpenseForm">
@@ -66,7 +76,9 @@
             <option value="Rent">Rent</option>
             <option value="Entertainment">Entertainment</option>
         </select>
-        <input type="submit" value="Add Expense">
+        <!-- <input type="submit" value="Add Expense"> -->
+        <button class="add-expense-button" id="addExpenseButton">Add Expense</button>
+
     </form>
     <table id="expenseTable">
         <thead>
@@ -77,7 +89,7 @@
             </tr>
         </thead>
         <tbody></tbody>
-    </table>
+    </table><br>
     <label for="pagenumber">Page Views:</label>
     <select name="pagenumber" id="pagenumber" type="radio" >
      <option value="5">5</option>
