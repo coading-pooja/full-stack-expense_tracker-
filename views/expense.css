@@ -7,39 +7,48 @@
 
 body {
     font-family: Arial, sans-serif;
-    background-color: #f1f1f1;
+     background-color: #986161; 
+
     padding: 20px;
 }
 
 h1 {
     text-align: center;
+
 }
 
-/* Adjust the premium button styling */
-.premium, .add-button, .leaderboard-button {
-    padding: 10px 20px;
+#premiumButton,#downloadBtn,#leaderboardbtn
+ {
+    /* padding: 10px 20px;
     font-size: 16px;
-}
-
-/* Adjust the premium user button styling */
-.premium-user-button {
-    padding: 10px 20px;
-    font-size: 16px;
-    background-color: #07b6f0;
+    background-color: #8dc1b97d; */
+        background: linear-gradient(135deg, #58cf09, #008CBA);
+    padding: 10px;
+    border-radius: 10px;
     color: white;
-    border: none;
-    cursor: pointer;
+    text-align: center;
+    font-size: 15px;
+    font-weight: bold;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.6);
+
+
+    
 }
 
-/* Adjust the premium user container styling */
-#premiumuser {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
+.premium-user-button {
+    background: linear-gradient(135deg, #58cf09, #008CBA);
+    padding: 10px;
+    border-radius: 10px;
+    color: white;
+    text-align: center;
+    font-size: 15px;
+    font-weight: bold;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.6);
+
 }
 
 /* Adjust the modal styling */
-.modal {
+#leaderboardModal {
     display: none;
     position: fixed;
     z-index: 1;
@@ -52,18 +61,32 @@ h1 {
 }
 
 .modal-content {
-    background-color: #3b3939;
+    background-color: #4CAF50;
+
+
+
     color: white;
     margin: 15% auto;
     padding: 20px;
-    border: 1px solid #888;
+    border: 10px solid #171414;
     max-width: 40%;
     text-align: center;
-    position: relative;
+    position: relative; 
+    
 }
 
+#leaderboardList {
+    list-style-type: none;
+    padding: 0;
+}
+#leaderboardList li {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+
 /* Adjust the close button styling */
-.close {
+#closeLeaderboard {
     position: absolute;
     top: 10px;
     right: 10px;
@@ -72,27 +95,6 @@ h1 {
     cursor: pointer;
 }
 
-/* Adjust the leaderboard button styling */
-.leaderboard-button {
-    background-color: #07b6f0;
-    color: #fff;
-    padding: 10px 20px;
-    border: none;
-
-
-    border-radius: 10px;
-    font-size: 16px;
-    cursor: pointer;
-}
-
-/* Adjust the add button styling */
-.add-button {
-    background-color: #07b6f0;
-    color: white;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-}
 
 /* Adjust the button container styling */
 .button-container {
@@ -102,30 +104,36 @@ h1 {
     margin-bottom: 15px;
 }
 
-/* Adjust the logout container styling */
-.logout-container {
-    float: right;
-    background-color: hsl(195, 94%, 48%);
-    color: white;
-    margin-left: auto;
-}
 
 /* Adjust the table styling */
 table {
     width: 100%;
     background-color: #fff;
-    border-collapse: collapse;
+    /* border-collapse: collapse; */
 }
 
-th,
+
+/* tr {
+    padding: 20px;
+    text-align: left;
+    border-bottom: 2px solid #ddd;
+} */
+
 td {
     padding: 10px;
-    text-align: left;
-    border-bottom: 1px solid #ddd;
+     border-bottom: 2px solid #ddd; 
+
 }
 
+
 th {
-    background-color: #f2f2f2;
+    padding: 10px;
+    text-align: left;
+    background: linear-gradient(135deg, #525b4d, #f5f6f7);
+    color: white;
+
+
+    /* background-color: #eddcdc; */
 }
 
 /* Adjust the delete button styling */
@@ -177,8 +185,55 @@ input[type="submit"] {
     border-radius: 4px;
     cursor: pointer;
 }
-
+.homepage-button,
 #logoutButton {
-    background-color: #07b6f0;
-    color:white;
+
+    background: linear-gradient(135deg, #a1ab9a, #008CBA);
+    padding: 10px;
+    border-radius: 10px;
+    color: white;
+    text-align: center;
+    font-size: 15px;
+    font-weight: bold;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.6);
+
+
 }
+
+.homepage-button {
+    margin-right: 10px;
+}
+.leaderboard-container {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+}
+
+/* Adjust the leaderboard button styling */
+.leaderboard-button {
+    background-color: #07b6f0;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    
+}
+.add-expense-button {
+    background: linear-gradient(135deg, hsl(254, 56%, 44%), #3e403f);
+    padding: 10px;
+    border-radius: 10px;
+    color: white;
+    text-align: center;
+    font-size: 15px;
+    font-weight: bold;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.6);
+}
+
+
+
+
+
+
+

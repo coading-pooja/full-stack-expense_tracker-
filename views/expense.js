@@ -47,7 +47,7 @@ axios.get("http://localhost:3000/expense/getexpenses", { headers: { "Authorizati
                 const newRow = document.createElement('tr');
                 const expenseDetail = [obj.amount, obj.description, obj.category];
                 expenseDetail.forEach(function (value) {
-                    const newCell = document.createElemen('td');
+                    const newCell = document.createElement('td');
                     newCell.textContent = value;
                     newRow.appendChild(newCell);
                 });
@@ -157,6 +157,8 @@ const deleteFn = function (newRow) {
 
 // Add an event listener for the premium button click
 premiumButton.addEventListener('click', async function (e) {
+    e.preventDefault(); 
+
 // Retrieve the token again for the premium button click event
 const token = localStorage.getItem('token');
 const response = await axios.get("http://localhost:3000/purchase/premiummembership", { headers: { "Authorization": token } });
@@ -214,7 +216,15 @@ function showPremiumUser() {
 
     const leaderboardBtn = document.getElementById('leaderboardbtn');
     leaderboardBtn.textContent = '🏆 Show Leaderboard 🏆';
-    leaderboardBtn.style.display = 'inline-block'; // Show the leaderboard button
+    leaderboardBtn.style.display = 'inline-block'; 
+    leaderboardBtn.style.position = 'fixed';
+    leaderboardBtn.style.right = '10px';
+    leaderboardBtn.style.top = '10px'; 
+
+    const leaderboardContainer = document.createElement('div');
+    leaderboardContainer.className = 'leaderboard-container';
+
+
 
 
     leaderboardBtn.onclick = async () => {
